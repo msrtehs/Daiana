@@ -12,16 +12,23 @@
           extend: {
             colors: {
               primary: {
-                50: '#fdf2f8',
-                100: '#fce7f3',
-                200: '#fbcfe8',
-                300: '#f9a8d4',
-                400: '#f472b6',
-                500: '#ec4899',
-                600: '#db2777',
-                700: '#be185d',
-                800: '#9d174d',
-                900: '#831843',
+                50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f9a8d4', 400: '#f472b6', 500: '#ec4899', 600: '#db2777', 700: '#be185d', 800: '#9d174d', 900: '#831843',
+              }
+            },
+            animation: {
+              'shake': 'shake 0.4s cubic-bezier(.36,.07,.19,.97) both',
+              'bounce-short': 'bounceShort 0.5s ease-in-out'
+            },
+            keyframes: {
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' },
+              },
+              bounceShort: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
               }
             }
           }
@@ -31,20 +38,9 @@
     <style>
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      .animate-spin-slow { animation: spin-slow 12s linear infinite; }
-      
-      /* Melhorias mobile/touch */
-      input, select, textarea { font-size: 16px !important; } /* Impede zoom automático no iOS */
-      body { -webkit-tap-highlight-color: transparent; } /* Remove destaque azul ao tocar */
-      
-      /* Ajuste para telas muito pequenas */
-      @media (max-width: 380px) {
-        .mobile-text-sm { font-size: 0.875rem; }
-      }
+      input, select, textarea { font-size: 16px !important; }
+      body { -webkit-tap-highlight-color: transparent; }
     </style>
-
-<link rel="stylesheet" href="/index.css">
   <script type="importmap">
 {
   "imports": {
@@ -58,9 +54,8 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-BMQS15Ic.js"></script>
 </head>
   <body class="bg-gray-50 text-gray-900 font-sans antialiased overflow-x-hidden">
     <div id="root"></div>
-</body>
+  </body>
 </html>
